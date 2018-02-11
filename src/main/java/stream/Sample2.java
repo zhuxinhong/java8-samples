@@ -15,6 +15,8 @@ public class Sample2 {
 
         Stream<BigInteger> integers = Stream.iterate(BigInteger.ZERO, n -> n.add(BigInteger.ONE));
 
+        Object[] powers = Stream.iterate(1.0, p -> p * 2).peek(e -> System.out.println("Fetching " + e)).limit(20).toArray();
+
         System.out.println("well done ...");
 
     }

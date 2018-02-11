@@ -29,5 +29,9 @@ public class Sample10 {
 
         /** 按性别分组 收集为set**/
         Map<Integer, Set<User>> map2 = list.stream().collect(Collectors.groupingBy(User::getSex, Collectors.toSet()));
+
+        Map<Integer, List<User>> map3 = list.stream().collect(Collectors.groupingBy(User::getSex, Collectors.toList()));
+
+        System.out.println(1);
     }
 }

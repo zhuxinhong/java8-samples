@@ -15,11 +15,17 @@ public class Sample2 {
         for (int i = 0; i < 100; i++) {
             intList.add(i);
         }
+
+//        Object[] ints = Stream.iterate(1, p -> p +1).limit(100).toArray();
+//        List<Integer> integerList = Stream.iterate(1, p -> p +1).limit(100).collect(Collectors.toList());
+
         Stream<Integer> stream = intList.stream();
 
-        Optional<Integer> sum = stream.reduce(Integer::sum);
+//        Optional<Integer> sum = stream.reduce(Integer::sum);
 
-        System.out.println(sum.get());
+        int res = stream.reduce(0, (sumVal, val) -> sumVal + val, (t1, t2) -> t1 + t2);
+        System.out.println(res);
+//        System.out.println(sum.get());
     }
 
 }

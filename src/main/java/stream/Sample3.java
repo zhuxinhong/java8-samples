@@ -11,10 +11,12 @@ public class Sample3 {
 
     public static void main(String[] args) {
         List<String> list = letters();
-        Stream<String> lowerString = list.stream().map(String::toLowerCase);
+        Stream<String> currentStream = list.stream();
+
+        Stream<String> lowerString = currentStream.map(String::toLowerCase);
         lowerString.forEach(System.out::println);
 
-        Stream<Character> characterStream = list.stream().flatMap(Sample3::characterStream);
+        Stream<Character> characterStream = currentStream.flatMap(Sample3::characterStream);
         characterStream.forEach(System.out::println);
     }
 
